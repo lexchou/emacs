@@ -1,0 +1,7 @@
+*.elc
+*.el~
+session.*
+.emacs.desktop
+ac-comphist.dat
+auto-save-list/
+eshell/

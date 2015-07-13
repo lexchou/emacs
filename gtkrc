@@ -1,0 +1,8 @@
+style "emacs-menu"{
+  font_name = "monospace 10"
+  bg[NORMAL] = "gray70"
+  bg[ACTIVE] = "gray75"
+  fg[NORMAL] = {0.0, 0.2, 0.05}
+}
+widget "*menubar*" style "emacs-menu"
+widget "*emacs-menuitem*" style "emacs-menu"
