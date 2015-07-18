@@ -15,7 +15,7 @@
 ;;helm and helm-gtags
 (helm-mode 1)
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setenv "GTAGSLIBPATH" "/Users/lexchou/project/.gtags/")
+(setenv "GTAGSLIBPATH" "~/project/.gtags/")
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 (setq
  helm-gtags-ignore-case t
@@ -62,11 +62,11 @@
 (evil-mode 1)
 
 ;;sil mode
-(add-to-list 'load-path "/Users/lexchou/.emacs.d/sil-mode")
+(add-to-list 'load-path "~/.emacs.d/sil-mode")
 (require 'sil-mode)
 
 ;;Configure color
-(add-to-list 'load-path "/Users/lexchou/.emacs.d/color-theme-6.6.0")
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-clarity)
@@ -165,11 +165,11 @@
                   company-oddmuse company-files company-dabbrev)))
  '(irony-additional-clang-options
    (quote
-    ("-I/usr/local/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1.0/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include" "-I/usr/include" "-I/Users/lexchou/project/swallow/swallow/includes")))
+    ("-I/usr/local/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1.0/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include" "-I/usr/include" "-I~/project/swallow/swallow/includes")))
  '(safe-local-variable-values
    (quote
-    ((company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "/Users/lexchou/project/swallow/swallow/includes")
-     (company-clang-arguments "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "-I/usr/include" "-I/Users/lexchou/project/swallow/swallow/includes")))))
+    ((company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "~/project/swallow/swallow/includes")
+     (company-clang-arguments "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "-I/usr/include" "-I~/project/swallow/swallow/includes")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
