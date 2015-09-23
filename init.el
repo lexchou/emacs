@@ -79,7 +79,7 @@
     indent-tabs-mode nil
     tab-width 4
     c-basic-offset 4)
-(set-default-font "Monaco-14")
+;(set-default-font "Monaco-14")
 
 
 
@@ -169,7 +169,6 @@
  '(safe-local-variable-values
    (quote
     ((company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "/Users/lexchou/project/swallow/swallow/includes")
-     (company-clang-arguments "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "-I/usr/include" "-I/Users/lexchou/project/swallow/swallow/includes")
      (company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "~/project/swallow/swallow/includes")
      (company-clang-arguments "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "-I/usr/include" "-I~/project/swallow/swallow/includes"))))
  '(tool-bar-mode nil))
@@ -178,4 +177,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "Source Code Pro" :foundry "adobe" :slant normal :weight normal :height 120 :width normal)))))
