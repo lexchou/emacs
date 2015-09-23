@@ -168,8 +168,11 @@
     ("-I/usr/local/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1.0/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include" "-I/usr/include" "-I~/project/swallow/swallow/includes")))
  '(safe-local-variable-values
    (quote
-    ((company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "~/project/swallow/swallow/includes")
-     (company-clang-arguments "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "-I/usr/include" "-I~/project/swallow/swallow/includes")))))
+    ((company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "/Users/lexchou/project/swallow/swallow/includes")
+     (company-clang-arguments "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "-I/usr/include" "-I/Users/lexchou/project/swallow/swallow/includes")
+     (company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "~/project/swallow/swallow/includes")
+     (company-clang-arguments "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "-I/usr/include" "-I~/project/swallow/swallow/includes"))))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
