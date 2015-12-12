@@ -11,6 +11,15 @@
 ;;perl
 (defalias 'perl-mode 'cperl-mode)
 
+;;python
+(require 'flycheck-pyflakes)
+(add-hook 'python-mode-hook 'flycheck-mode)
+
+;;sql
+(add-hook 'sql-interactive-mode-hook
+          (lambda ()
+            (toggle-truncate-lines t)))
+
 
 ;;helm and helm-gtags
 (helm-mode 1)
@@ -171,7 +180,16 @@
     ((company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "/Users/lexchou/project/swallow/swallow/includes")
      (company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "~/project/swallow/swallow/includes")
      (company-clang-arguments "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "-I/usr/include" "-I~/project/swallow/swallow/includes"))))
- '(tool-bar-mode nil))
+ '(sql-postgres-login-params
+   (quote
+    ((user :default "lexchou")
+     password
+     (server :default "10.0.0.1")
+     (database :default "lexchou"))))
+ '(tool-bar-mode nil)
+ '(tuareg-default-indent 4)
+ '(tuareg-do-indent 4)
+ '(tuareg-let-indent 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
