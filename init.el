@@ -42,6 +42,7 @@
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
+(add-hook 'python-mode-hook 'helm-gtags-mode)
 
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-c g s") 'helm-gtags-select)
@@ -69,6 +70,8 @@
 ;(add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
 ;(require 'evil)
 (evil-mode 1)
+(evil-set-initial-state 'term-mode 'emacs)
+(evil-set-initial-state 'eshell-mode 'emacs)
 
 ;;sil mode
 (add-to-list 'load-path "~/.emacs.d/sil-mode")
@@ -196,3 +199,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Source Code Pro" :foundry "adobe" :slant normal :weight normal :height 120 :width normal)))))
+
+
