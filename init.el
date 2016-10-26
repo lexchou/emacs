@@ -21,11 +21,19 @@
 (global-company-mode)
 (setq company-idle-delay 0.2)
 (setq company-minimum-prefix-length 1)
-(setq racer-cmd "/Users/lexchou/.cargo/bin/racer")
-
+(if (eq system-type 'windows-nt)
+    (progn
+        (setq racer-cmd "C:\\cygwin64\\home\\lexchou\\.cargo\\bin\\racer.exe")
+        (setq racer-rust-src-path "d:\\Libraries\\rust-master\\src")
+  )
+)
 (if (eq system-type 'darwin)
-    (setq racer-rust-src-path (expand-file-name "~/.rust/src"))
-    )
+    (progn
+        (setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
+        (setq racer-rust-src-path (expand-file-name "~/.rust/src"))
+      )
+)
+
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (add-hook 'racer-mode-hook #'company-mode)
@@ -34,11 +42,9 @@
 
 ;; Setting up configurations when you load rust-mode
 (add-hook 'rust-mode-hook
-     '(lambda ()
+     (lambda ()
      ;; Enable racer
-     (racer-activate)
-     ;; Hook in racer with eldoc to provide documentation
-     (racer-turn-on-eldoc)
+     (racer-mode)
      ;; Use flycheck-rust in rust-mode
      (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
      ;; Use company-racer in rust mode
