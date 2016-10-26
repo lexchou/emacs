@@ -17,6 +17,38 @@
 (require 'flycheck-pyflakes)
 (add-hook 'python-mode-hook 'flycheck-mode)
 
+;;rust
+(global-company-mode)
+(setq company-idle-delay 0.2)
+(setq company-minimum-prefix-length 1)
+(setq racer-cmd "/Users/lexchou/.cargo/bin/racer")
+
+(if (eq system-type 'darwin)
+    (setq racer-rust-src-path (expand-file-name "~/.rust/src"))
+    )
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(setq company-tooltip-align-annotations t)
+
+
+;; Setting up configurations when you load rust-mode
+(add-hook 'rust-mode-hook
+     '(lambda ()
+     ;; Enable racer
+     (racer-activate)
+     ;; Hook in racer with eldoc to provide documentation
+     (racer-turn-on-eldoc)
+     ;; Use flycheck-rust in rust-mode
+     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+     ;; Use company-racer in rust mode
+     (set (make-local-variable 'company-backends) '(company-racer))
+     ;; Key binding to jump to method definition
+     (local-set-key (kbd "M-.") #'racer-find-definition)
+     ;; Key binding to auto complete and indent
+     (local-set-key (kbd "TAB") #'racer-complete-or-indent)))
+
+
 ;;sql
 (add-hook 'sql-interactive-mode-hook
           (lambda ()
@@ -46,6 +78,7 @@
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
+(add-hook 'python-mode-hook 'helm-gtags-mode)
 
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-c g s") 'helm-gtags-select)
@@ -73,6 +106,8 @@
 ;(add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
 ;(require 'evil)
 (evil-mode 1)
+(evil-set-initial-state 'term-mode 'emacs)
+(evil-set-initial-state 'eshell-mode 'emacs)
 
 ;;sil mode
 (add-to-list 'load-path "~/.emacs.d/sil-mode")
@@ -184,7 +219,7 @@
     ("-I/usr/local/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1.0/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include" "-I/usr/include" "-I~/project/swallow/swallow/includes")))
  '(package-selected-packages
    (quote
-    (lua-mode eshell-did-you-mean eshell-git-prompt eshell-prompt-extras shader-mode yatemplate yaml-mode w3m utop tuareg term+ swift-mode sr-speedbar rainbow-identifiers rainbow-delimiters rainbow-blocks projectile-speedbar powerline-evil pos-tip php-mode perl-completion org-projectile org-ac org nginx-mode names markdown-toc markdown-mode+ llvm-mode iedit helm-projectile helm-perldoc helm-gtags helm-git helm-company graphviz-dot-mode google-c-style glsl-mode git-gutter git gh-md flymake-yaml flymake-shell flymake-php flymake-google-cpplint flymake-cursor flycheck-pyflakes flycheck-ocaml evil-smartparens epc dash-at-point css-eldoc csharp-mode cperl-mode company-irony company-c-headers cmake-font-lock auto-complete-c-headers)))
+    (company-racer racer flycheck-rust rust-mode rustfmt lua-mode racket-mode yatemplate yaml-mode w3m utop tuareg term+ swift-mode sr-speedbar rainbow-identifiers rainbow-delimiters rainbow-blocks projectile-speedbar powerline-evil pos-tip php-mode perl-completion org-projectile org-ac org nginx-mode names markdown-toc markdown-mode+ llvm-mode iedit helm-projectile helm-perldoc helm-gtags helm-git helm-company graphviz-dot-mode google-c-style glsl-mode git-gutter git gh-md flymake-yaml flymake-shell flymake-php flymake-google-cpplint flymake-cursor flycheck-pyflakes flycheck-ocaml evil-smartparens epc dash-at-point css-eldoc csharp-mode cperl-mode company-irony company-c-headers cmake-font-lock auto-complete-c-headers)))
  '(safe-local-variable-values
    (quote
     ((company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "/Users/lexchou/project/swallow/swallow/includes")
@@ -206,3 +241,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Source Code Pro" :foundry "adobe" :slant normal :weight normal :height 120 :width normal)))))
+
+
