@@ -1,3 +1,5 @@
+(setq gc-cons-threshold 100000000)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
@@ -80,7 +82,10 @@
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-jonadabian-slate)
+;(color-theme-arjen)
+(color-theme-charcoal-black)
+;;(color-theme-billw)
+;;(color-theme-black-on-gray)
 (require 'rainbow-identifiers)
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
 
@@ -179,7 +184,7 @@
     ("-I/usr/local/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1.0/include" "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include" "-I/usr/include" "-I~/project/swallow/swallow/includes")))
  '(package-selected-packages
    (quote
-    (eshell-did-you-mean eshell-git-prompt eshell-prompt-extras shader-mode yatemplate yaml-mode w3m utop tuareg term+ swift-mode sr-speedbar rainbow-identifiers rainbow-delimiters rainbow-blocks projectile-speedbar powerline-evil pos-tip php-mode perl-completion org-projectile org-ac org nginx-mode names markdown-toc markdown-mode+ llvm-mode iedit helm-projectile helm-perldoc helm-gtags helm-git helm-company graphviz-dot-mode google-c-style glsl-mode git-gutter git gh-md flymake-yaml flymake-shell flymake-php flymake-google-cpplint flymake-cursor flycheck-pyflakes flycheck-ocaml evil-smartparens epc dash-at-point css-eldoc csharp-mode cperl-mode company-irony company-c-headers cmake-font-lock auto-complete-c-headers)))
+    (lua-mode eshell-did-you-mean eshell-git-prompt eshell-prompt-extras shader-mode yatemplate yaml-mode w3m utop tuareg term+ swift-mode sr-speedbar rainbow-identifiers rainbow-delimiters rainbow-blocks projectile-speedbar powerline-evil pos-tip php-mode perl-completion org-projectile org-ac org nginx-mode names markdown-toc markdown-mode+ llvm-mode iedit helm-projectile helm-perldoc helm-gtags helm-git helm-company graphviz-dot-mode google-c-style glsl-mode git-gutter git gh-md flymake-yaml flymake-shell flymake-php flymake-google-cpplint flymake-cursor flycheck-pyflakes flycheck-ocaml evil-smartparens epc dash-at-point css-eldoc csharp-mode cperl-mode company-irony company-c-headers cmake-font-lock auto-complete-c-headers)))
  '(safe-local-variable-values
    (quote
     ((company-c-headers-path-system "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" "/usr/include" "/Users/lexchou/project/swallow/swallow/includes")
